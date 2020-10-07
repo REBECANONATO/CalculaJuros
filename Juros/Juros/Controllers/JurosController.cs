@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 namespace Juros.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("taxaJuros")]
     public class JurosController : ControllerBase
     {
         private readonly ILogger<JurosController> _logger;
