@@ -23,6 +23,23 @@ namespace Calculo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(
+                options => options.AddPolicy(
+                    "PolicyNames.AllowOrigins",
+                    builder => builder
+                        .WithOrigins(
+                            Configuration["Origins:CorsOrigins"]
+                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                                .Select(s => s.TrimEnd('/'))
+                                .ToArray()
+                        )
+                        .SetIsOriginAllowed((Host) => true)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials()
+                )
+            );
+
             services.AddControllersWithViews();
         }
 
@@ -45,6 +62,8 @@ namespace Calculo
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("PolicyNames.AllowOrigins");
 
             app.UseEndpoints(endpoints =>
             {

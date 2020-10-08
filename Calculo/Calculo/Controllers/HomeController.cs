@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Calculo.Models;
 using Calculo.Executor;
+using Microsoft.AspNetCore.Cors;
 
 namespace Calculo.Controllers
 {
@@ -22,6 +23,7 @@ namespace Calculo.Controllers
         }
 
         [HttpPost]
+        [EnableCors("PolicyNames.AllowOrigins")]
         public IActionResult Post(JurosCompostos jurosCompostos)
         {
             CalculaJurosExecutor calcula = new CalculaJurosExecutor();

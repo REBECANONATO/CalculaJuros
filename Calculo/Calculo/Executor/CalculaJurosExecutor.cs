@@ -36,7 +36,7 @@ namespace Calculo.Executor
                 BaseUrl = new Uri("https://localhost:44384/")
             };
 
-            var req = new RestRequest("taxaJuros", Method.GET);
+            var req = new RestRequest(Constantes.URL, Method.GET);
 
             var response = client.Execute(req);
 
