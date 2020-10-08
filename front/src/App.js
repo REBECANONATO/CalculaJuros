@@ -32,15 +32,17 @@ function App() {
         <p>
           Insira o valor inicial e a quantidade de mês para o cálculo do juros composto.
         </p>
+
         <form onSubmit={handleRegister}>
           <input
             placeholder="Valor Inicial"
             value={valorDeclarado}
             onChange={e => setValorDeclarado(e.target.value)}
           />
-
           <input
             placeholder="Tempo em meses"
+            type="number"
+            min="0"
             value={tempoMeses}
             onChange={e => setTempoMeses(e.target.value)}
           />

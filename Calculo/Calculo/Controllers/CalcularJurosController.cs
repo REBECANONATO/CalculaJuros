@@ -13,11 +13,11 @@ namespace Calculo.Controllers
 {
     [ApiController]
     [Route("calculajuros")]
-    public class HomeController : Controller
+    public class CalcularJurosController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<CalcularJurosController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public CalcularJurosController(ILogger<CalcularJurosController> logger)
         {
             _logger = logger;
         }

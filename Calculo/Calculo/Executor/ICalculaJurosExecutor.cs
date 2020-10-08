@@ -8,6 +8,6 @@ namespace Calculo.Executor
 {
     public interface ICalculaJurosExecutor
     {
-        public double CalcularJuros(JurosCompostos jurosCompostos);
+        public string CalcularJuros(JurosCompostos jurosCompostos);
     }
 }
